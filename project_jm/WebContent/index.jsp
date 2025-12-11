@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+123
 </body>
+<script type="text/javascript">
+	console.log('123');
+</script>
 </html>
