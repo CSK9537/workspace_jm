@@ -15,12 +15,12 @@
 			<form style="display:flex; flex-direction:column; gap:13px;">
 				<h4>필수사항</h4>
 				<div style="display:flex; flex-direction:row; justify-content: space-between;">
-					<input type="text" class="input_box" name="jmuser_id" placeholder="아이디 - 영어 소문자로 시작, 영어 + 숫자 조합 3~12 글자" maxlength="12" style="width:435px;">
+					<input type="text" class="input_box" name="jmuser_id" placeholder="아이디 - 영어 소문자로 시작, 영어 + 숫자 3~12글자" maxlength="12" style="width:435px;">
 					<button type="button" id="idcheck" onclick="validateId()">중복확인</button>
 				</div>
-				<input type="password" class="input_box" name="jmuser_pw" placeholder="비밀번호">
+				<input type="password" class="input_box" name="jmuser_pw" placeholder="비밀번호 - 영어 소문자, 대문자, 숫자 8~16글자">
 				<input type="password" class="input_box" name="jmuser_pw2" placeholder="비밀번호 확인">
-				<input type="text" class="input_box" name="jmuser_name" placeholder="이름">
+				<input type="text" class="input_box" name="jmuser_name" placeholder="이름 - 한글, 영어 2~12 글자">
 				
 				<h4 style="margin-top:15px;">선택사항</h4>
 				<input type="text" class="input_box" name="jmuser_nickname" placeholder="닉네임">
