@@ -7,9 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-123
 </body>
 <script type="text/javascript">
-	console.log('123');
+	let sendData = 'cmd=main'
+	location.href = 'JmuserController?' + sendData;
 </script>
 </html>

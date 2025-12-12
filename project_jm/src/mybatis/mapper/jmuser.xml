@@ -3,7 +3,7 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="mybatis.mapper.jm"> <!-- 경로 표기법이 클래스명 표기법처럼 사용된다! -->
+<mapper namespace="mybatis.mapper.jmuser"> <!-- 경로 표기법이 클래스명 표기법처럼 사용된다! -->
 	<!-- 
 		mapper에서는 ?(물음표)를 사용할 수 없다.
 		대신 전달한 파라미터의 이름은 #{}을 통해 적는다.
