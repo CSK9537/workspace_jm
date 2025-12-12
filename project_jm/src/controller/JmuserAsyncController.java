@@ -65,12 +65,42 @@ public class JmuserAsyncController extends HttpServlet {
 			cmd = (String)obj.get("cmd");
 		}
 		
+		// 세션 객체
 		HttpSession session = request.getSession();
+		// VO 객체
 		JmuserVO juvo = null;
+		// 서비스 객체
 		JmuserService juservice = new JmuserServiceImpl();
 		
 		switch (cmd) {
-			// 1. 회원가입
+		// 1. 아이디 검증
+		case "validateId":
+			String jmuser_id = request.getParameter("jmuser_id");
+			obj.clear();
+			obj.put("result", juservice.validateId(jmuser_id));
+			break;
+		// 2. 회원가입
+		case "signup":
+			juvo = new JmuserVO();
+			juvo.setJmuser_id((String)obj.get("jmuser_id"));
+			juvo.setJmuser_pw((String)obj.get("jmuser_pw"));
+			juvo.setJmuser_name((String)obj.get("jmuser_name"));
+			// 미선택 사항은 "";
+			juvo.setJmuser_nickname((String)obj.get("jmuser_nickname"));
+			juvo.setJmuser_birth((String)obj.get("jmuser_birth"));
+			// 성별 미선택은 null
+			if((String)obj.get("jmuser_gender") == null) {
+				juvo.setJmuser_gender("");
+			}else {
+				juvo.setJmuser_gender((String)obj.get("jmuser_gender"));
+			}
+			juvo.setJmuser_tel((String)obj.get("jmuser_tel"));
+			juvo.setJmuser_email((String)obj.get("jmuser_email"));
+			juvo.setJmuser_addr((String)obj.get("jmuser_addr"));
+			
+			obj.clear();
+			obj.put("result", juservice.signup(juvo));
+			break;
 		}
 		// js에 전달
 		out.print(obj);

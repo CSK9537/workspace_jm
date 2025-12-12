@@ -29,14 +29,14 @@ public class JmuserController extends HttpServlet {
 		String path = "";
 
 		switch (cmd) {
-		case "main":
-			path = "jm/main.jsp";
+		case "mainPage":
+			path = "jm/mainPage.jsp";
 			break;
-		case "login":
-			path = "jm/login.jsp";
+		case "loginPage":
+			path = "jm/loginPage.jsp";
 			break;
-		case "signup":
-			path = "jm/signup.jsp";
+		case "signupPage":
+			path = "jm/signupPage.jsp";
 			break;
 		}
 		

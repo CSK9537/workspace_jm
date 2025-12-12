@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html,body { height: 100%; color: #111; background: #fff; }
 /* font-family: -apple-system, BlinkMacSystemFont, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", Arial, sans-serif; */
@@ -9,6 +10,7 @@ header.site-header { background: #c58aff; padding: 14px 24px; display:flex; alig
 .search input { width:100%; padding:10px 14px; border-radius:22px; border:0; outline:none; }
 .header-actions { display:flex; gap:12px; align-items:center; }
 .icon-btn { background:transparent; border:1px solid rgba(255,255,255,0.2); color:#fff; padding:8px 12px; border-radius:999px; cursor:pointer; }
+.icon-btn:hover{ background-color:#9338ed; }
 
 .container { max-width:1200px; margin:24px auto; padding:0 18px; }
 .layout { display:grid; gap:20px; grid-template-columns: 1fr 320px; }

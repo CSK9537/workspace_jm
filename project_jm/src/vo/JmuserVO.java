@@ -1,14 +1,12 @@
 package vo;
 
-import java.sql.Date;
-
 public class JmuserVO {
 	private int jmuser_idx;
 	private String jmuser_id;
 	private String jmuser_pw;
 	private String jmuser_name;
 	private String jmuser_nickname;
-	private Date jmuser_birth;
+	private String jmuser_birth;
 	private String jmuser_gender;
 	private String jmuser_tel;
 	private String jmuser_email;
@@ -17,7 +15,7 @@ public class JmuserVO {
 	
 	public JmuserVO() {}
 	public JmuserVO(int jmuser_idx, String jmuser_id, String jmuser_pw, String jmuser_name, String jmuser_nickname,
-			Date jmuser_birth, String jmuser_gender, String jmuser_tel, String jmuser_email, String jmuser_addr,
+			String jmuser_birth, String jmuser_gender, String jmuser_tel, String jmuser_email, String jmuser_addr,
 			String jmuser_favorite) {
 		super();
 		this.jmuser_idx = jmuser_idx;
@@ -62,10 +60,10 @@ public class JmuserVO {
 	public void setJmuser_nickname(String jmuser_nickname) {
 		this.jmuser_nickname = jmuser_nickname;
 	}
-	public Date getJmuser_birth() {
+	public String getJmuser_birth() {
 		return jmuser_birth;
 	}
-	public void setJmuser_birth(Date jmuser_birth) {
+	public void setJmuser_birth(String jmuser_birth) {
 		this.jmuser_birth = jmuser_birth;
 	}
 	public String getJmuser_gender() {
@@ -98,4 +96,5 @@ public class JmuserVO {
 	public void setJmuser_favorite(String jmuser_favorite) {
 		this.jmuser_favorite = jmuser_favorite;
 	}
+	
 }

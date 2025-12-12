@@ -19,8 +19,8 @@
 			</form>
 		</div>
 		<div class="header-actions">
-			<button class="icon-btn" id="login">로그인</button>
-			<button class="icon-btn" id="signup">회원가입</button>
+			<button class="icon-btn" id="loginPage">로그인</button>
+			<button class="icon-btn" id="signupPage">회원가입</button>
 		</div>
 	</header>
 	
@@ -136,27 +136,25 @@
 			<div>© 2025 Joonzis' Music. 실제 서비스 디자인은 저작권 보호 대상일 수도 있고 아닐 수도 있습니다.</div>
 		</footer>
 	</main>
-
-  <!-- 필요한 최소한의 인터랙션 스크립트 (선택) -->
-  <script>
-    // 간단한 캐러셀 플레이스홀더 — 실제로는 서버에서 배너 목록을 전달하거나
-    // 별도 JS 라이브러리(Swiper 등)를 사용하는 것이 좋습니다.
-    (function(){
-      const el = document.query('mainCarousel');
-      if(!el) return;
-      const messages = [
-        '최신 발매 앨범',
-        '이주의 추천 플레이리스트',
-        '실시간 인기 아티스트'
-      ];
-      let idx = 0;
-      setInterval(()=>{
-        el.textContent = messages[idx];
-        idx = (idx+1) % messages.length;
-      }, 3500);
-    })();
-  </script>
-  <script type="text/javascript" src="js/main.js"></script>
 </body>
-
+<!-- 필요한 최소한의 인터랙션 스크립트 (선택) -->
+<script>
+  // 간단한 캐러셀 플레이스홀더 — 실제로는 서버에서 배너 목록을 전달하거나
+  // 별도 JS 라이브러리(Swiper 등)를 사용하는 것이 좋습니다.
+  (function(){
+    const el = document.query('mainCarousel');
+    if(!el) return;
+    const messages = [
+      '최신 발매 앨범',
+      '이주의 추천 플레이리스트',
+      '실시간 인기 아티스트'
+    ];
+    let idx = 0;
+    setInterval(()=>{
+      el.textContent = messages[idx];
+      idx = (idx+1) % messages.length;
+    }, 3500);
+  })();
+</script>
+<script type="text/javascript" src="js/main.js"></script>
 </html>

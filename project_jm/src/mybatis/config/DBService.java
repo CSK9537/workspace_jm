@@ -27,6 +27,3 @@ public class DBService {	// factory를 만드는게 목적
 		return factory;
 	}
 }
-//SqlSessionFactoryBuilder에서   SqlSessionFactory 을 생성하고,
-// Factory에서  SqlSession을 생성한다.
-//mybaytis를 이용하려면 SqlSession이 필요하다!!!!!!

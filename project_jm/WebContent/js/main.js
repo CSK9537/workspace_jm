@@ -4,10 +4,10 @@ document.querySelectorAll("button").forEach(btn => {
 		let btn_id = btn.id;
 		let sendData = '';
 		
-		if(btn_id === 'login'){
-			sendData = 'cmd=login';
-		}else if(btn_id === 'signup'){
-			sendData = 'cmd=signup';
+		if(btn_id === 'loginPage'){
+			sendData = 'cmd=loginPage';
+		}else if(btn_id === 'signupPage'){
+			sendData = 'cmd=signupPage';
 		}
 		
 		location.href = `/project_jm/JmuserController?${sendData}`;

@@ -9,7 +9,6 @@
 <body>
 </body>
 <script type="text/javascript">
-	let sendData = 'cmd=main'
-	location.href = 'JmuserController?' + sendData;
+	location.href = 'JmuserController?cmd=mainPage';
 </script>
 </html>
