@@ -1,4 +1,17 @@
 @charset "UTF-8";
+.container{
+	max-width:600px;
+	margin-top:15px;
+}
+h2{
+	margin-bottom:20px;
+	text-align:center;
+}
+form{
+	display: flex;
+	flex-direction: column;
+	gap: 13px;
+}
 input[name="jmuser_gender"] {
 	display: none;
 }

@@ -9,10 +9,10 @@
 <link rel="stylesheet" href="css/signup_login.css">
 </head>
 <body>
-	<div class="container" style="max-width:600px; margin-top:15px;">
+	<div class="container">
 		<div class="card">
-			<h2 style="margin-bottom:20px; text-align:center;">회원가입</h2>
-			<form style="display:flex; flex-direction:column; gap:13px;">
+			<h2>회원가입</h2>
+			<form>
 				<h4>필수사항</h4>
 				<div style="display:flex; flex-direction:row; justify-content: space-between;">
 					<input type="text" class="input_box" name="jmuser_id" placeholder="아이디 - 영어 소문자로 시작, 영어 + 숫자 3~12글자" maxlength="12" style="width:435px;">
