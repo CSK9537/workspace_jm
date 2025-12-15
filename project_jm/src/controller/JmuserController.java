@@ -32,11 +32,14 @@ public class JmuserController extends HttpServlet {
 		case "mainPage":
 			path = "jm/mainPage.jsp";
 			break;
+		case "signupPage":
+			path = "jm/signupPage.jsp";
+			break;
 		case "loginPage":
 			path = "jm/loginPage.jsp";
 			break;
-		case "signupPage":
-			path = "jm/signupPage.jsp";
+		case "myPage":
+			path = "jm/myPage.jsp";
 			break;
 		}
 		

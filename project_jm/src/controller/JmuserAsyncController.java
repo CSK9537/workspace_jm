@@ -73,12 +73,16 @@ public class JmuserAsyncController extends HttpServlet {
 		JmuserService juservice = new JmuserServiceImpl();
 		
 		switch (cmd) {
-		// 1. 아이디 검증
+		// 1. 아이디 중복 확인
 		case "validateId":
 			String jmuser_id = request.getParameter("jmuser_id");
+			
 			obj.clear();
+			
 			obj.put("result", juservice.validateId(jmuser_id));
+			
 			break;
+			
 		// 2. 회원가입
 		case "signup":
 			juvo = new JmuserVO();
@@ -99,12 +103,40 @@ public class JmuserAsyncController extends HttpServlet {
 			juvo.setJmuser_addr((String)obj.get("jmuser_addr"));
 			
 			obj.clear();
+			
 			obj.put("result", juservice.signup(juvo));
+			
 			break;
+			
+		// 3. 로그인
+		case "login":
+			juvo = new JmuserVO();
+			juvo.setJmuser_id((String)obj.get("jmuser_id"));
+			juvo.setJmuser_pw((String)obj.get("jmuser_pw"));
+			
+			JmuserVO returnVO = juservice.login(juvo);
+			
+			obj.clear();
+			
+			if(returnVO != null) {
+				session.setAttribute("jmuser", returnVO);
+				obj.put("result", "success");
+			}else {
+				obj.put("result", "fail");
+			}
+			
+			break;
+		// 4. 로그아웃
+		case "logout":
+			JmuserVO sessionVO = (JmuserVO)session.getAttribute("jmuser");
+			if(sessionVO != null) {
+				session.removeAttribute("jmuser");
+				response.sendRedirect("JmuserController?cmd=mainPage");
+			}
 		}
+		
 		// js에 전달
 		out.print(obj);
-	
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

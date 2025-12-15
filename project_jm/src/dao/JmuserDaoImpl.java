@@ -24,10 +24,12 @@ public class JmuserDaoImpl implements JmuserDao{
 		return sqlsession;
 	}
 	// 오버라이드
+	// 아이디 중복 확인
 	@Override
 	public int validateId(String jmuser_id) {
 		return getSqlSession().selectOne("validate_id", jmuser_id);
 	}
+	// 회원가입
 	@Override
 	public int signup(JmuserVO juvo) {
 		int result = getSqlSession().insert("signup", juvo);
@@ -35,5 +37,10 @@ public class JmuserDaoImpl implements JmuserDao{
 			getSqlSession().commit();
 		}
 		return result;
+	}
+	// 로그인
+	@Override
+	public JmuserVO login(JmuserVO juvo) {
+		return getSqlSession().selectOne("login", juvo);
 	}
 }

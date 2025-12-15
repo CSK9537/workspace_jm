@@ -23,4 +23,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{jmuser_addr},
 			NULL)
 	</insert>
+	<!-- 3. 로그인 -->
+	<select id="login" parameterType="vo.JmuserVO" resultType="vo.JmuserVO">
+		SELECT * FROM jmuser WHERE jmuser_id = #{jmuser_id} and jmuser_pw = #{jmuser_pw}
+	</select>
 </mapper>

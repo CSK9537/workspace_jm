@@ -4,11 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인 화면으로 이동 중...</title>
+<title>Insert title here</title>
 </head>
 <body>
+123
 </body>
-<script type="text/javascript">
-	location.href = 'JmuserController?cmd=mainPage';
-</script>
 </html>

@@ -19,8 +19,26 @@
 			</form>
 		</div>
 		<div class="header-actions">
-			<button class="icon-btn" id="loginPage">로그인</button>
-			<button class="icon-btn" id="signupPage">회원가입</button>
+			<c:choose>
+				<c:when test="${not empty sessionScope.jmuser }">
+					<h5 style="color:#ffffff;">
+						<c:choose>
+							<c:when test="${not empty sessionScope.jmuser.jmuser_nickname }">
+								${sessionScope.jmuser.jmuser_nickname } 님
+							</c:when>
+							<c:otherwise>
+								${sessionScope.jmuser.jmuser_name } 님
+							</c:otherwise>
+						</c:choose>
+					</h5>
+					<button class="icon-btn" id="myPage">마이페이지</button>
+					<button class="icon-btn" id="logout">로그아웃</button>
+				</c:when>
+				<c:otherwise>
+					<button class="icon-btn" id="signupPage">회원가입</button>
+					<button class="icon-btn" id="loginPage">로그인</button>
+				</c:otherwise>
+			</c:choose>	
 		</div>
 	</header>
 	
@@ -137,24 +155,5 @@
 		</footer>
 	</main>
 </body>
-<!-- 필요한 최소한의 인터랙션 스크립트 (선택) -->
-<script>
-  // 간단한 캐러셀 플레이스홀더 — 실제로는 서버에서 배너 목록을 전달하거나
-  // 별도 JS 라이브러리(Swiper 등)를 사용하는 것이 좋습니다.
-  (function(){
-    const el = document.query('mainCarousel');
-    if(!el) return;
-    const messages = [
-      '최신 발매 앨범',
-      '이주의 추천 플레이리스트',
-      '실시간 인기 아티스트'
-    ];
-    let idx = 0;
-    setInterval(()=>{
-      el.textContent = messages[idx];
-      idx = (idx+1) % messages.length;
-    }, 3500);
-  })();
-</script>
 <script type="text/javascript" src="js/main.js"></script>
 </html>
