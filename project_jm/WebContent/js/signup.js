@@ -115,10 +115,10 @@ function signup(){
 				alert("회원가입이 성공했습니다.");
 				if(confirm("로그인 화면으로 이동할까요?")){
 					// 로그인 페이지로 이동
-					location.href = 'JmuserController?cmd=loginPage'
+					location.href = 'JmMainController?cmd=loginPage'
 				}else{
 					// 메인 페이지로 이동
-					location.href = 'JmuserController?cmd=mainPage'
+					location.href = 'JmMainController?cmd=mainPage'
 				}
 			}else{
 				alert("회원가입이 실패했습니다.");

@@ -26,7 +26,7 @@ function login(){
 		.then(data => {
 			if(data.result === "success"){
 				// 메인으로 이동(index.jsp)
-				location.href = 'JmuserController?cmd=mainPage'
+				location.href = 'JmMainController?cmd=mainPage'
 			}else{
 				alert("아이디와 비밀번호를 확인해 주세요");
 				return;

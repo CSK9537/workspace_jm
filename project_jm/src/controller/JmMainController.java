@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/JmuserController")
-public class JmuserController extends HttpServlet {
+@WebServlet("/JmMainController")
+public class JmMainController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public JmuserController() {
+    public JmMainController() {
         super();
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,7 +30,7 @@ public class JmuserController extends HttpServlet {
 
 		switch (cmd) {
 		case "mainPage":
-			path = "jm/mainPage.jsp";
+			path = "SongAsyncController?cmd=main";
 			break;
 		case "signupPage":
 			path = "jm/signupPage.jsp";
@@ -42,7 +42,7 @@ public class JmuserController extends HttpServlet {
 			path = "jm/myPage.jsp";
 			break;
 		case "chartPage":
-			path = "jm/chartPage.jsp";
+			path = "SongAsyncController?cmd=chart";
 			break;
 		}
 		

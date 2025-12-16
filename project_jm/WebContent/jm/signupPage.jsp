@@ -40,10 +40,10 @@
 				<button type="button" onclick="signup()" class="icon-btn" style="background:#c58aff; font-size:16px; border:0; color:#fff; padding:10px; border-radius:8px; margin-top:20px;">가입하기</button>
 			</form>
 			<div style="margin-top:20px; font-size:15px; text-align:center;">
-				이미 계정이 있으신가요? <a href="JmuserController?cmd=loginPage">로그인</a>
+				이미 계정이 있으신가요? <a href="JmMainController?cmd=loginPage">로그인</a>
 			</div>
 			<div style="margin-top:10px; font-size:15px; text-align:center;">
-				<a href="JmuserController?cmd=mainPage">메인으로 돌아가기</a>
+				<a href="JmMainController?cmd=mainPage">메인으로 돌아가기</a>
 			</div>
 		</div>
 	</div>

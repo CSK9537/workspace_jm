@@ -15,7 +15,7 @@ document.querySelectorAll("button").forEach(btn => {
 			return;
 		}
 		
-		location.href = `/project_jm/JmuserController?${sendData}`;
+		location.href = `/project_jm/JmMainController?${sendData}`;
 		
 	});
 });

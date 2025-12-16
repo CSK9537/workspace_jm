@@ -132,7 +132,7 @@ public class JmuserAsyncController extends HttpServlet {
 			JmuserVO sessionVO = (JmuserVO)session.getAttribute("jmuser");
 			if(sessionVO != null) {
 				session.removeAttribute("jmuser");
-				response.sendRedirect("JmuserController?cmd=mainPage");
+				response.sendRedirect("JmMainController?cmd=mainPage");
 			}
 			
 			break;
@@ -162,6 +162,7 @@ public class JmuserAsyncController extends HttpServlet {
 			obj.put("result", juservice.signup(juvo));
 			
 			break;
+
 		}
 		// js에 전달
 		out.print(obj);

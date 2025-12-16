@@ -9,6 +9,6 @@
 <body>
 </body>
 <script type="text/javascript">
-	location.href = 'JmuserController?cmd=mainPage';
+	location.href = 'JmMainController?cmd=mainPage';
 </script>
 </html>

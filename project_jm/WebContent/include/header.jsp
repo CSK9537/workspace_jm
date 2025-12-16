@@ -12,7 +12,7 @@
 <body>
 	<header class="site-header">
 		<div class="brand">
-			<a href="JmuserController?cmd=mainPage" class="logo" style="color:#fff;">Joonzis' Music</a>
+			<a href="JmMainController?cmd=mainPage" class="logo" style="color:#fff;">Joonzis' Music</a>
 		</div>
 		<div class="search">
 			<form action="/search" method="get">

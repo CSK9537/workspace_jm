@@ -35,67 +35,28 @@
 				<!-- 인기 곡 섹션 -->
 				<div class="section card">
 					<div class="title">
-						<h3>실시간 인기 곡</h3><a href="JmuserController?cmd=chartPage">더보기 &gt;</a>
+						<h3>실시간 인기 곡</h3><a href="JmMainController?cmd=chartPage">더보기 &gt;</a>
 					</div>
 					<ul class="song-list">
 	<%-- 서버에서 popularSongs 로 리스트 전달 예시 --%>
-						<c:forEach var="song" items="${popularSongs}" varStatus="st" begin="0" end="7">
+						<c:forEach var="song" items="${list}" varStatus="status" begin="0" end="4">
 							<li class="song-item">
-								<div class="thumb">${st.index+1}</div>
+								<div class="thumb">${status.index+1}</div>
 								<div class="meta">
-									<div class="name">${song.title}</div>
-									<div class="sub">${song.artist} • ${song.album}</div>
+									<div class="name">${song.song_name}</div>
+									<div class="sub">${song.singer} • ${song.album_name}</div>
 								</div>
-								<div class="play-btn">▶</div>
+								<div class="main-content"><a href="#">▶</a></div>
+								<div class="main-content"><a href="#">♬</a></div>
+								<div class="main-content"><a href="#">♥</a></div>
 							</li>
 						</c:forEach>
 	<!-- 데이터가 없을 때의 플레이스홀더 -->
-						<c:if test="${empty popularSongs}">
-							<li class="song-item">데이터가 없습니다. (서버에서 popularSongs를 전달하세요)</li>
+						<c:if test="${empty list}">
+							<li class="song-item">데이터가 없습니다. (서버에서 list를 전달하세요)</li>
 						</c:if>
 					</ul>
 				</div>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
-					123<br>
 			</section>
 	<!-- 오른쪽 사이드바 -->
 			<aside class="sidebar">
