@@ -43,10 +43,14 @@
 							<li class="song-item">
 								<div class="thumb">${status.index+1}</div>
 								<div class="meta">
-									<div class="name">${song.song_name}</div>
-									<div class="sub">${song.singer} • ${song.album_name}</div>
+									<div class="name">
+										<a href="${song.link}" target="_blank">${song.song_name}</a>
+									</div>
+									<div class="sub">
+										<a href="#">${song.singer}</a> • <a href="#">${song.album_name}</a>
+									</div>
 								</div>
-								<div class="main-content"><a href="#">▶</a></div>
+								<div class="main-content"><a href="${song.link}" target="_blank">▶</a></div>
 								<div class="main-content"><a href="#">♬</a></div>
 								<div class="main-content"><a href="#">♥</a></div>
 							</li>

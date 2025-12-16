@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Hot 100</title>
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/chart.css">
 </head>
@@ -14,8 +14,8 @@
 	<div class="container">
 		<h2>Hot 100</h2>
 		<ul class="song-list">
-			<li class="song-item">
-				<div class="thumb">순위</div>
+			<li class="chart-song-item">
+				<div class="chart-thumb">순위</div>
 				<div class="meta">
 					<div class="name">곡 정보</div>
 				</div>
@@ -27,10 +27,14 @@
 				<li class="song-item">
 					<div class="thumb">${status.index + 1}</div>
 					<div class="meta">
-						<div class="name">${song.song_name}</div>
-						<div class="sub">${song.singer} • ${song.album_name}</div>
+						<div class="name">
+							<a href="${song.link}" target="_blank">${song.song_name}</a>
+						</div>
+						<div class="sub">
+							<a href="#">${song.singer}</a> • <a href="#">${song.album_name}</a>
+						</div>
 					</div>
-					<div class="content"><a href="#">▶</a></div>
+					<div class="content"><a href="${song.link}" target="_blank">▶</a></div>
 					<div class="content"><a href="#">♬</a></div>
 					<div class="content"><a href="#">♥</a></div>
 				</li>

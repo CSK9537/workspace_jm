@@ -16,7 +16,7 @@
 				<input type="text" class="input_box" name="jmuser_id" placeholder="아이디">
 				<input type="password" class="input_box" name="jmuser_pw" placeholder="비밀번호">
 				<input type="hidden" name="cmd" value="login">
-				<button type="button" onclick="login()" class="icon-btn" style="background:#c58aff; font-size:16px; border:0; color:#fff; padding:10px; border-radius:8px; margin-top:20px;">로그인</button>
+				<button type="button" onclick="login()" class="icon-btn" style="font-size:16px; border:0; color:#fff; padding:10px; border-radius:8px; margin-top:20px;">로그인</button>
 			</form>
 			<div style="margin-top:20px; font-size:15px; text-align:center;">
 				아직 계정이 없으신가요? <a href="JmMainController?cmd=signupPage">회원가입</a>

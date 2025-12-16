@@ -7,6 +7,22 @@ h2{
 	margin-bottom:20px;
 	text-align:center;
 }
+.chart-song-item{
+	display:flex;
+	gap:12px;
+	align-items:center;
+	padding:8px;
+	border-radius:8px;
+	transition:background .15s ease;
+}
+.chart-thumb{
+	width:52px;
+	height:26px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	font-size:12px;
+}
 .title{
 	width:40px;
 	text-align:center;
@@ -15,7 +31,12 @@ h2{
 .content{
 	width:40px;
 	text-align:center;
+}
+.content a{
 	font-size:21px;
-	color:#c58aff;
+	color:#ac67f1;
 	text-decoration: none;
+}
+.content a:hover{
+	color:#8825eb;
 }

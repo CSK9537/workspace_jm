@@ -37,7 +37,7 @@
 				<input type="text" class="input_box" name="jmuser_email" placeholder="이메일">
 				<input type="text" class="input_box" name="jmuser_addr" placeholder="주소">
 				<input type="hidden" name="cmd" value="signup">
-				<button type="button" onclick="signup()" class="icon-btn" style="background:#c58aff; font-size:16px; border:0; color:#fff; padding:10px; border-radius:8px; margin-top:20px;">가입하기</button>
+				<button type="button" onclick="signup()" class="icon-btn" style="font-size:16px; border:0; color:#fff; padding:10px; border-radius:8px; margin-top:20px;">가입하기</button>
 			</form>
 			<div style="margin-top:20px; font-size:15px; text-align:center;">
 				이미 계정이 있으신가요? <a href="JmMainController?cmd=loginPage">로그인</a>

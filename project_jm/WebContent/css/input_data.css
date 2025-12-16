@@ -23,18 +23,18 @@ input[name="jmuser_gender"] {
 	width: 90px;
 	color: #ffffff;
 	font-size: 16px;
-	background: #c58aff;
+	background: #ac67f1;
 	border: 0;
 	border-radius: 8px;
 	cursor: pointer;
 }
 #idcheck:hover{
-	background-color: #9338ed;
+	background-color: #8825eb;
 }
 label {
 	width: 205px;
 	display: inline-block;
-	background: #c58aff;
+	background: #ac67f1;
 	color: #ffffff;
 	padding: 10px;
 	border-radius: 8px;
@@ -48,6 +48,6 @@ label[for="radiobtn3"]{
 	width: 115px;
 }
 input[type="radio"]:checked + label {
-	background-color: #9338ed;
+	background-color: #8825eb;
 	color: #ffffff;
 }
