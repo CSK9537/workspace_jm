@@ -126,6 +126,7 @@ public class JmuserAsyncController extends HttpServlet {
 			}
 			
 			break;
+			
 		// 4. 로그아웃
 		case "logout":
 			JmuserVO sessionVO = (JmuserVO)session.getAttribute("jmuser");
@@ -133,8 +134,35 @@ public class JmuserAsyncController extends HttpServlet {
 				session.removeAttribute("jmuser");
 				response.sendRedirect("JmuserController?cmd=mainPage");
 			}
-		}
+			
+			break;
 		
+		// 4. 회원 정보 수정
+		case "update":
+			juvo = new JmuserVO();
+//			juvo.setJmuser_idx();
+			juvo.setJmuser_id((String)obj.get("jmuser_id"));
+			juvo.setJmuser_pw((String)obj.get("jmuser_pw"));
+			juvo.setJmuser_name((String)obj.get("jmuser_name"));
+			// 미선택 사항은 "";
+			juvo.setJmuser_nickname((String)obj.get("jmuser_nickname"));
+			juvo.setJmuser_birth((String)obj.get("jmuser_birth"));
+			// 성별 미선택은 null
+			if((String)obj.get("jmuser_gender") == null) {
+				juvo.setJmuser_gender("");
+			}else {
+				juvo.setJmuser_gender((String)obj.get("jmuser_gender"));
+			}
+			juvo.setJmuser_tel((String)obj.get("jmuser_tel"));
+			juvo.setJmuser_email((String)obj.get("jmuser_email"));
+			juvo.setJmuser_addr((String)obj.get("jmuser_addr"));
+			
+			obj.clear();
+			
+			obj.put("result", juservice.signup(juvo));
+			
+			break;
+		}
 		// js에 전달
 		out.print(obj);
 	}

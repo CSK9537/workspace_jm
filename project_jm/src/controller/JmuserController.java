@@ -41,6 +41,9 @@ public class JmuserController extends HttpServlet {
 		case "myPage":
 			path = "jm/myPage.jsp";
 			break;
+		case "chartPage":
+			path = "jm/chartPage.jsp";
+			break;
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);

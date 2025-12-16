@@ -8,41 +8,9 @@
 <title>Joonzis' Music</title>
 <link rel="stylesheet" href="css/main.css">
 </head>
-<body>
-	<header class="site-header">
-		<a href="#" class="brand">
-			<div class="logo">Joonzis' Music</div>
-    	</a>
-		<div class="search">
-			<form action="/search" method="get">
-				<input type="search" name="q" placeholder="가수, 곡, 앨범 검색" aria-label="검색" />
-			</form>
-		</div>
-		<div class="header-actions">
-			<c:choose>
-				<c:when test="${not empty sessionScope.jmuser }">
-					<h5 style="color:#ffffff;">
-						<c:choose>
-							<c:when test="${not empty sessionScope.jmuser.jmuser_nickname }">
-								${sessionScope.jmuser.jmuser_nickname } 님
-							</c:when>
-							<c:otherwise>
-								${sessionScope.jmuser.jmuser_name } 님
-							</c:otherwise>
-						</c:choose>
-					</h5>
-					<button class="icon-btn" id="myPage">마이페이지</button>
-					<button class="icon-btn" id="logout">로그아웃</button>
-				</c:when>
-				<c:otherwise>
-					<button class="icon-btn" id="signupPage">회원가입</button>
-					<button class="icon-btn" id="loginPage">로그인</button>
-				</c:otherwise>
-			</c:choose>	
-		</div>
-	</header>
-	
-	<main class="container">
+<%@ include file="/include/header.jsp" %>
+<body>	
+	<main class="container" style="max-width:1200px; ">
 		<div class="layout">
 	<!-- 메인 컬럼 -->
 			<section>
@@ -67,7 +35,7 @@
 				<!-- 인기 곡 섹션 -->
 				<div class="section card">
 					<div class="title">
-						<h3>실시간 인기 곡</h3><a href="#">더보기 &gt;</a>
+						<h3>실시간 인기 곡</h3><a href="JmuserController?cmd=chartPage">더보기 &gt;</a>
 					</div>
 					<ul class="song-list">
 	<%-- 서버에서 popularSongs 로 리스트 전달 예시 --%>
@@ -87,32 +55,47 @@
 						</c:if>
 					</ul>
 				</div>
-	<!-- 추천 플레이리스트 섹션 -->
-				<div class="section">
-					<div class="title">
-						<h3>추천 플레이리스트</h3><a href="#">더보기 &gt;</a>
-					</div>
-					<div class="grid-3">
-						<c:forEach var="pl" items="${recommendedPlaylists}" varStatus="vs" begin="0" end="2">
-							<div class="card">
-								<div style="height:120px; border-radius:8px; background:#f2f2f2; display:flex; align-items:center; justify-content:center;">
-									플레이리스트 이미지
-								</div>
-								<div style="margin-top:10px; font-weight:600;">
-									${pl.title}
-								</div>
-								<div style="color:#666; font-size:13px; margin-top:6px;">
-									${pl.description}
-								</div>
-							</div>
-						</c:forEach>
-						<c:if test="${empty recommendedPlaylists}">
-							<div class="card">샘플 플레이리스트 1</div>
-							<div class="card">샘플 플레이리스트 2</div>
-							<div class="card">샘플 플레이리스트 3</div>
-						</c:if>
-					</div>
-				</div>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
+					123<br>
 			</section>
 	<!-- 오른쪽 사이드바 -->
 			<aside class="sidebar">

@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>로그인</title>
 <link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/signup_login.css">
+<link rel="stylesheet" href="css/input_data.css">
 </head>
 <body>
 	<div class="container">

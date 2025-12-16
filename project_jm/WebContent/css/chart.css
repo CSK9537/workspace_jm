@@ -1,0 +1,50 @@
+@charset "UTF-8";
+.container{
+	max-width:1000px;
+	margin-top:15px;
+}
+h2{
+	margin-bottom:20px;
+	text-align:center;
+}
+form{
+	display: flex;
+	flex-direction: column;
+	gap: 13px;
+}
+.input_box{
+	font-size: 16px;
+	padding: 11px;
+}
+#idcheck{
+	width: 90px;
+	color: #ffffff;
+	font-size: 16px;
+	background: #c58aff;
+	border: 0;
+	border-radius: 8px;
+	cursor: pointer;
+}
+#idcheck:hover{
+	background-color: #9338ed;
+}
+label {
+	width: 205px;
+	display: inline-block;
+	background: #c58aff;
+	color: #ffffff;
+	padding: 10px;
+	border-radius: 8px;
+	cursor: pointer;
+	font-size: 16px;
+	text-align: center;
+	transition: background-color 0.3s, border-color 0.3s;
+}
+
+label[for="radiobtn3"]{
+	width: 115px;
+}
+input[type="radio"]:checked + label {
+	background-color: #9338ed;
+	color: #ffffff;
+}
