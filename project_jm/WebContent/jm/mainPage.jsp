@@ -16,29 +16,21 @@
 			<section>
 				<div class="hero card">
 					<div class="carousel" id="mainCarousel"><!-- 자바스크립트로 제어 가능 -->
-					<%-- 서버에서 전달된 추천 배너(예: featuredList) 가정 --%>
-						<c:choose>
-							<c:when test="${not empty featuredList}">
-								<div>${featuredList[0].title}</div>
-							</c:when>
-							<c:otherwise>
-								<div>추천 플레이리스트 / 배너 영역</div>
-							</c:otherwise>
-						</c:choose>
+						<div>추천 가수</div>
+						<div>추천 곡</div>
+						<div>추천 앨범</div>
 					</div>
 					<div class="quick-links">
 						<a href="#" class="card">나의 플레이리스트</a>
-						<a href="#" class="card">실시간 차트</a>
-						<a href="#" class="card">장르별 추천</a>
+						<a href="#" class="card">공지사항</a>
 					</div>
 				</div>
 				<!-- 인기 곡 섹션 -->
 				<div class="section card">
 					<div class="title">
-						<h3>실시간 인기 곡</h3><a class="moveInfo" href="chartPage">더보기 &gt;</a>
+						<h3>hot 5</h3><a class="moveInfo" href="chartPage">hot 100 &gt;</a>
 					</div>
 					<ul class="song-list">
-	<%-- 서버에서 popularSongs 로 리스트 전달 예시 --%>
 						<c:forEach var="song" items="${list}" varStatus="status" begin="0" end="4">
 							<li class="song-item">
 								<div class="thumb">${status.index+1}</div>
@@ -47,22 +39,22 @@
 										<a href="${song.link}" target="_blank">${song.song_name}</a>
 									</div>
 									<div class="sub">
-										<a class="moveInfo" href="singerInfoPage" singer="${song.singer }">
+										<a class="moveInfo" href="singerInfoPage" singer="${song.singer}">
 											${song.singer}
 										</a> • 
-										<a class="moveInfo" href="albumInfoPage" songnum="${song.song_number }">
+										<a class="moveInfo" href="albumInfoPage" singer="${song.singer}" albumname="${song.album_name}">
 											${song.album_name}
 										</a>
 									</div>
 								</div>
 								<div class="main-content"><a href="${song.link}" target="_blank">▶</a></div>
-								<div class="main-content"><a class="moveInfo" href="songInfoPage" songnum="${song.song_number }">♬</a></div>
+								<div class="main-content"><a class="moveInfo" href="songInfoPage" songnum="${song.song_number}">♬</a></div>
 								<div class="main-content"><a href="#">♥</a></div>
 							</li>
 						</c:forEach>
 	<!-- 데이터가 없을 때의 플레이스홀더 -->
 						<c:if test="${empty list}">
-							<li class="song-item">데이터가 없습니다. (서버에서 list를 전달하세요)</li>
+							<li class="song-item">데이터가 없습니다.</li>
 						</c:if>
 					</ul>
 				</div>
@@ -71,7 +63,7 @@
 			<aside class="sidebar">
 				<div class="card">
 					<div class="title">
-						<h4>실시간 차트</h4><a href="#">더보기</a>
+						<h4>실시간 hot 10</h4>
 					</div>
 					<div class="chart-list">
 						<c:forEach var="c" items="${realtimeChart}" varStatus="rs" begin="0" end="9">
@@ -90,14 +82,6 @@
 						<c:if test="${empty realtimeChart}">
 							<div class="chart-item">차트 데이터 없음</div>
 						</c:if>
-					</div>
-				</div>
-				<div class="card" style="margin-top:12px;">
-					<div class="title"><h4>장르별 추천</h4></div>
-					<div class="grid-3">
-						<div class="card">발라드</div>
-						<div class="card">댄스</div>
-						<div class="card">힙합</div>
 					</div>
 				</div>
 			</aside>

@@ -1,3 +1,4 @@
+// 버튼 이벤트 부여
 document.querySelectorAll("button").forEach(btn => {
 	btn.addEventListener('click', () => {
 		
@@ -19,6 +20,8 @@ document.querySelectorAll("button").forEach(btn => {
 		
 	});
 });
+
+// 로그아웃
 function logout(){
 	if(confirm("로그아웃하시겠습니까?")){
 		location.href = `/project_jm/JmuserAsyncController?cmd=logout`;

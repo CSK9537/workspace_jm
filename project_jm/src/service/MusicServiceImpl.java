@@ -36,4 +36,8 @@ public class MusicServiceImpl implements MusicService{
 	public SingerVO singerinfo(String singer) {
 		return mdao.singerinfo(singer);
 	}
+	@Override
+	public AlbumVO albuminfo(AlbumVO albumvo) {
+		return mdao.albuminfo(albumvo);
+	}
 }

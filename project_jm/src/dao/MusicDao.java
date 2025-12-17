@@ -13,4 +13,5 @@ public interface MusicDao {
 	public SongVO songinfo_1(int song_number);
 	public AlbumVO songinfo_2(int song_number);
 	public SingerVO singerinfo(String singer);
+	public AlbumVO albuminfo(AlbumVO albumvo);
 }

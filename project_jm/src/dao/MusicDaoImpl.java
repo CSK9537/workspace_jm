@@ -54,4 +54,8 @@ public class MusicDaoImpl implements MusicDao{
 	public SingerVO singerinfo(String singer) {
 		return getSqlSession().selectOne("singerinfo", singer);
 	}
+	@Override
+	public AlbumVO albuminfo(AlbumVO albumvo) {
+		return getSqlSession().selectOne("albuminfo", albumvo);
+	}
 }

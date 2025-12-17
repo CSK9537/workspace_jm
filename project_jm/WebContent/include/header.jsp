@@ -15,7 +15,8 @@
 			<a href="JmMainController?cmd=mainPage" class="logo" style="color:#fff;">Joonzis' Music</a>
 		</div>
 		<div class="search">
-			<form action="/search" method="get">
+			<form action="JmMainController">
+				<input type="hidden" name="cmd" value="searchPage">
 				<input type="search" name="q" placeholder="가수, 곡, 앨범 검색" aria-label="검색" />
 			</form>
 		</div>

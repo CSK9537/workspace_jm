@@ -16,19 +16,19 @@
 			<div style="flex:1;">
 				<h2>${songvo.song_name }</h2>
 				<p style="margin-top:6px;">
-					<a class="moveInfo" href="singerInfoPage" singer="${songvo.singer }" style="color:#666666;">
-						${songvo.singer }
+					<a class="moveInfo" href="singerInfoPage" singer="${songvo.singer}" style="color:#666666;">
+						${songvo.singer}
 					</a> · 
-					<a class="moveInfo" href="albumInfoPage" songnum="${songvo.song_number }" style="color:#666666;">
-						${songvo.album_name }
+					<a class="moveInfo" href="albumInfoPage" songnum="${songvo.song_number}" style="color:#666666;">
+						${songvo.album_name}
 					</a>
 				</p>
 				<div style="margin-top:14px; display:flex; gap:10px;">
-					<button class="icon-btn" style="background:#1db954; color:#fff; border:0;">
+					<button class="icon-btn" onclick="window.open('${songvo.link}')">
 						▶ 재생
 					</button>
-					<button class="icon-btn">
-						♡ 좋아요
+					<button class="icon-btn" onclick="">
+						♥ 좋아요
 					</button>
 				</div>
 			</div>
@@ -39,7 +39,7 @@
 				<h3>곡 정보</h3>
 			</div>
 			<ul class="song-list">
-				<li>발매일 : <span class="odate">${albumvo.release_date }</span></li>
+				<li>발매일 : <span class="odate">${albumvo.release_date}</span></li>
 			</ul>
 		</div>
 		

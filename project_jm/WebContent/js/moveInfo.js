@@ -5,6 +5,7 @@ document.querySelectorAll('.moveInfo').forEach(aEle => {
 		let cmd = aEle.getAttribute('href');
 		let songnum = aEle.getAttribute('songnum');
 		let singer = aEle.getAttribute('singer');
+		let albumname = aEle.getAttribute('albumname');
 		let sendData = 'cmd=' + cmd;
 		if(songnum != null){
 			sendData += '&song_number=' + songnum;
@@ -12,7 +13,9 @@ document.querySelectorAll('.moveInfo').forEach(aEle => {
 		if(singer != null){
 			sendData += '&singer=' + singer;
 		}
-
+		if(albumname != null){
+			sendData += '&album_name=' + albumname;
+		}
 		location.href = 'JmMainController?' + sendData;
 	});
 });

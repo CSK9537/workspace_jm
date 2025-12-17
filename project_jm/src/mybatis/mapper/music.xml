@@ -41,4 +41,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="singerinfo" parameterType="String" resultType="vo.SingerVO">
 		SELECT * FROM singer WHERE singer=#{singer}
 	</select>
+	<!-- 7. 앨범 정보 -->
+	<select id="albuminfo" parameterType="vo.AlbumVO" resultType="vo.AlbumVO">
+		SELECT * FROM album WHERE singer=#{singer} AND album_name=#{album_name}
+	</select>
 </mapper>

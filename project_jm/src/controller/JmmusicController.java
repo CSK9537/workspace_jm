@@ -68,6 +68,8 @@ public class JmmusicController extends HttpServlet {
 			cmd = (String)obj.get("cmd");
 		}
 		
+		// 동기, 비동기 구분
+		boolean isAsync = false;
 		// 세션 객체
 		HttpSession session = request.getSession();
 		// 경로
@@ -119,14 +121,29 @@ public class JmmusicController extends HttpServlet {
 			break;
 			
 		case "albumInfo":
+			albumvo = new AlbumVO();
+			albumvo.setSinger(request.getParameter("singer"));
+			albumvo.setAlbum_name(request.getParameter("album_name"));
+			AlbumVO avo = mservice.albuminfo(albumvo);
+			request.setAttribute("avo", avo);
+			path = "jm/albumInfoPage.jsp";
 			
 			break;
 			
+		case "search":
+			System.out.println(request.getParameter("q"));
+			
+			path = "jm/searchPage.jsp";
+			
+			break;
 		}
 		
-		request.getRequestDispatcher(path).forward(request, response);
-		// js에 전달
-		out.print(obj);
+		if(isAsync) {
+			// js에 전달
+			out.print(obj);
+		}else {
+			request.getRequestDispatcher(path).forward(request, response);
+		}
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

@@ -23,7 +23,7 @@
 				<div class="title">정보</div>
 				<div class="title">담기</div>
 			</li>
-			<c:forEach var="song" items="${list }" varStatus="status">
+			<c:forEach var="song" items="${list}" varStatus="status">
 				<li class="song-item">
 					<div class="thumb">${status.index + 1}</div>
 					<div class="meta">
@@ -33,10 +33,10 @@
 							</a>
 						</div>
 						<div class="sub">
-							<a class="moveInfo" href="singerInfoPage" singer="${song.singer }">
+							<a class="moveInfo" href="singerInfoPage" singer="${song.singer}">
 								${song.singer}
 							</a> • 
-							<a class="moveInfo" href="albumInfoPage">
+							<a class="moveInfo" href="albumInfoPage" singer="${song.singer}" albumname="${song.album_name}">
 								${song.album_name}
 							</a>
 						</div>
@@ -47,7 +47,7 @@
 						</a>
 					</div>
 					<div class="content">
-						<a class="moveInfo" href="songInfoPage" songnum="${song.song_number }">
+						<a class="moveInfo" href="songInfoPage" songnum="${song.song_number}">
 							♬
 						</a>
 					</div>
@@ -59,7 +59,7 @@
 				</li>
 			</c:forEach>
 			<c:if test="${empty list}">
-				<li class="song-item">데이터가 없습니다. (서버에서 list를 전달하세요)</li>
+				<li class="song-item">데이터가 없습니다.</li>
 			</c:if>
 		</ul>
 		<form>
