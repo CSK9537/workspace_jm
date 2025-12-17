@@ -35,7 +35,7 @@
 				<!-- 인기 곡 섹션 -->
 				<div class="section card">
 					<div class="title">
-						<h3>실시간 인기 곡</h3><a class="movePage" href="chartPage">더보기 &gt;</a>
+						<h3>실시간 인기 곡</h3><a class="moveInfo" href="chartPage">더보기 &gt;</a>
 					</div>
 					<ul class="song-list">
 	<%-- 서버에서 popularSongs 로 리스트 전달 예시 --%>
@@ -47,16 +47,16 @@
 										<a href="${song.link}" target="_blank">${song.song_name}</a>
 									</div>
 									<div class="sub">
-										<a class="movePage" href="singerInfoPage">
+										<a class="moveInfo" href="singerInfoPage" singer="${song.singer }">
 											${song.singer}
 										</a> • 
-										<a class="movePage" href="albumInfoPage">
+										<a class="moveInfo" href="albumInfoPage" songnum="${song.song_number }">
 											${song.album_name}
 										</a>
 									</div>
 								</div>
 								<div class="main-content"><a href="${song.link}" target="_blank">▶</a></div>
-								<div class="main-content"><a class="movePage" href="songInfoPage">♬</a></div>
+								<div class="main-content"><a class="moveInfo" href="songInfoPage" songnum="${song.song_number }">♬</a></div>
 								<div class="main-content"><a href="#">♥</a></div>
 							</li>
 						</c:forEach>
@@ -109,4 +109,5 @@
 	</main>
 </body>
 <script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/moveInfo.js"></script>
 </html>

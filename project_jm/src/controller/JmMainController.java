@@ -44,13 +44,13 @@ public class JmMainController extends HttpServlet {
 			path = "JmmusicController?cmd=chart";
 			break;
 		case "songInfoPage":
-			path = "jm/songInfoPage.jsp";
+			path = "JmmusicController?cmd=songInfo";
 			break;
 		case "singerInfoPage":
-			path = "jm/singerInfoPage.jsp";
+			path = "JmmusicController?cmd=singerInfo";
 			break;
 		case "albumInfoPage":
-			path = "jm/albumInfoPage.jsp";
+			path = "JmmusicController?cmd=albumInfo";
 			break;
 		}
 		

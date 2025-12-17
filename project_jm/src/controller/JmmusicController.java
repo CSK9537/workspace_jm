@@ -18,8 +18,10 @@ import org.json.simple.parser.ParseException;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import service.SongService;
-import service.SongServiceImpl;
+import service.MusicService;
+import service.MusicServiceImpl;
+import vo.AlbumVO;
+import vo.SingerVO;
 import vo.SongVO;
 
 @WebServlet("/JmmusicController")
@@ -68,28 +70,61 @@ public class JmmusicController extends HttpServlet {
 		
 		// 세션 객체
 		HttpSession session = request.getSession();
+		// 경로
+		String path = "";
 		// VO 객체
 		SongVO songvo = null;
+		SingerVO singervo = null;
+		AlbumVO albumvo = null;
 		// List 객체
 		List<SongVO> list = null;
 		// 서비스 객체
-		SongService songservice = new SongServiceImpl();
+		MusicService mservice = new MusicServiceImpl();
+		// 컬럼 초기화
+		int song_number = 0;
+		String singer = "";
 		
 		switch (cmd) {
 		case "main":
-			list = songservice.chart();
+			mservice.randomcount();
+			list = mservice.chart_10();
 			request.setAttribute("list", list);
-			request.getRequestDispatcher("jm/mainPage.jsp").forward(request, response);
+			path = "jm/mainPage.jsp";
 			
 			break;
 			
 		case "chart":
-			list = songservice.chart();
+			list = mservice.chart_100();
 			request.setAttribute("list", list);
-			request.getRequestDispatcher("jm/chartPage.jsp").forward(request, response);
+			path = "jm/chartPage.jsp";
 			
 			break;
+			
+		case "songInfo":
+			song_number = Integer.parseInt(request.getParameter("song_number"));
+			songvo = mservice.songinfo_1(song_number);
+			albumvo = mservice.songinfo_2(song_number);
+			request.setAttribute("songvo", songvo);
+			request.setAttribute("albumvo", albumvo);
+			path = "jm/songInfoPage.jsp";
+			
+			break;
+			
+		case "singerInfo":
+			singer = request.getParameter("singer");
+			singervo = mservice.singerinfo(singer);
+			request.setAttribute("singervo", singervo);
+			path = "jm/singerInfoPage.jsp";
+			
+			break;
+			
+		case "albumInfo":
+			
+			break;
+			
 		}
+		
+		request.getRequestDispatcher(path).forward(request, response);
 		// js에 전달
 		out.print(obj);
 	}

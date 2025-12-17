@@ -28,15 +28,34 @@
 					<div class="thumb">${status.index + 1}</div>
 					<div class="meta">
 						<div class="name">
-							<a href="${song.link}" target="_blank">${song.song_name}</a>
+							<a href="${song.link}" target="_blank">
+								${song.song_name}
+							</a>
 						</div>
 						<div class="sub">
-							<a href="#">${song.singer}</a> • <a href="#">${song.album_name}</a>
+							<a class="moveInfo" href="singerInfoPage" singer="${song.singer }">
+								${song.singer}
+							</a> • 
+							<a class="moveInfo" href="albumInfoPage">
+								${song.album_name}
+							</a>
 						</div>
 					</div>
-					<div class="content"><a href="${song.link}" target="_blank">▶</a></div>
-					<div class="content"><a href="#">♬</a></div>
-					<div class="content"><a href="#">♥</a></div>
+					<div class="content">
+						<a href="${song.link}" target="_blank">
+							▶
+						</a>
+					</div>
+					<div class="content">
+						<a class="moveInfo" href="songInfoPage" songnum="${song.song_number }">
+							♬
+						</a>
+					</div>
+					<div class="content">
+						<a href="#">
+							♥
+						</a>
+					</div>
 				</li>
 			</c:forEach>
 			<c:if test="${empty list}">
@@ -48,4 +67,5 @@
 		</form>
 	</div>
 </body>
+<script type="text/javascript" src="js/moveInfo.js"></script>
 </html>

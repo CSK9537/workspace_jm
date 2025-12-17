@@ -16,9 +16,9 @@
 				아티스트
 			</div>
 			<div>
-				<h2>가수명</h2>
+				<h2>${singervo.singer }</h2>
 				<p style="color:#666; margin-top:6px;">
-					데뷔년도 · 소속사
+					<span class="odate">${singervo.debut_date }</span> 데뷔 · ${singervo.company }
 				</p>
 				<button class="icon-btn" style="margin-top:10px;">
 					♡ 팬맺기
@@ -46,4 +46,5 @@
 
 	</main>
 </body>
+<script type="text/javascript" src="js/dateformat.js"></script>
 </html>
