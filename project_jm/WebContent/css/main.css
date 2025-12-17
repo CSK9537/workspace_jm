@@ -6,13 +6,13 @@ html,body { height: 100%; color: #111111; background: #ffffff; }
 .layout { display:grid; gap:20px; grid-template-columns: 1fr 320px; }
 a{text-decoration:none; color:#ac67f1;}
 a:hover{color:#8825eb;}
-.icon-btn { background:#ac67f1; border:1px solid rgba(255,255,255,0.2); color:#fff; padding:8px 12px; border-radius:999px; cursor:pointer; }
+.icon-btn { color:#ffffff; background:#ac67f1; border:1px solid rgba(255,255,255,0.2); padding:8px 12px; border-radius:999px; cursor:pointer; }
 .icon-btn:hover{ background-color:#8825eb; }
 .hero { background: linear-gradient(90deg, #eafcf3, #ffffff); border-radius:10px; padding:18px; display:flex; gap:18px; align-items:center; }
 .hero .carousel { flex:1; height:180px; border-radius:8px; background:#f5f5f5; display:flex; align-items:center; justify-content:center; font-weight:600; }
 .hero .quick-links { width:220px; display:flex; flex-direction:column; gap:8px; }
 .card { background:#ffffff; border-radius:10px; padding:14px; box-shadow:0 6px 18px rgba(16,24,40,0.06); }
-
+.card .icon-btn{color:#ffffff; background:#ac67f1;}
 .section { margin-top:8px; }
 .section .title { font-size:18px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center; }
 .song-list { list-style:none; display:grid; gap:10px; }

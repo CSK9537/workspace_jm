@@ -7,7 +7,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 @WebServlet("/JmMainController")
 public class JmMainController extends HttpServlet {
@@ -30,7 +29,7 @@ public class JmMainController extends HttpServlet {
 
 		switch (cmd) {
 		case "mainPage":
-			path = "SongAsyncController?cmd=main";
+			path = "JmmusicController?cmd=main";
 			break;
 		case "signupPage":
 			path = "jm/signupPage.jsp";
@@ -42,7 +41,16 @@ public class JmMainController extends HttpServlet {
 			path = "jm/myPage.jsp";
 			break;
 		case "chartPage":
-			path = "SongAsyncController?cmd=chart";
+			path = "JmmusicController?cmd=chart";
+			break;
+		case "songInfoPage":
+			path = "jm/songInfoPage.jsp";
+			break;
+		case "singerInfoPage":
+			path = "jm/singerInfoPage.jsp";
+			break;
+		case "albumInfoPage":
+			path = "jm/albumInfoPage.jsp";
 			break;
 		}
 		

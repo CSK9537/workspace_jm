@@ -22,11 +22,11 @@ import service.SongService;
 import service.SongServiceImpl;
 import vo.SongVO;
 
-@WebServlet("/SongAsyncController")
-public class SongAsyncController extends HttpServlet {
+@WebServlet("/JmmusicController")
+public class JmmusicController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public SongAsyncController() {
+    public JmmusicController() {
         super();
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
