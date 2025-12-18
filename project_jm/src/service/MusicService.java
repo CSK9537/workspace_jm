@@ -3,6 +3,7 @@ package service;
 import java.util.List;
 
 import vo.AlbumVO;
+import vo.JmuserVO;
 import vo.SingerVO;
 import vo.SongVO;
 
@@ -14,4 +15,8 @@ public interface MusicService {
 	public AlbumVO songinfo_2(int song_number);
 	public SingerVO singerinfo(String singer);
 	public AlbumVO albuminfo(AlbumVO albumvo);
+	public List<SongVO> searchSinger(String q);
+	public List<SongVO> searchSong(String q);
+	public List<SongVO> searchAlbum(String q);
+	public void updateFavorite(JmuserVO sessionVO);
 }

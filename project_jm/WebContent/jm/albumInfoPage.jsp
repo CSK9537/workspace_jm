@@ -23,27 +23,12 @@
 					</a> · 
 					<span class="odate">${avo.release_date}</span>
 				</p>
-				<div style="margin-top:14px; display:flex; gap:10px;">
-					<button class="icon-btn">
-						▶ 전체 재생
-					</button>
-				</div>
 			</div>
 		</div>
 		
-		<div class="section card" style="margin-top:20px;">
-			<div class="title">
-				<h3>수록곡</h3>
-			</div>
-			<ul class="song-list">
-				<li class="song-item">1. 수록곡 제목</li>
-				<li class="song-item">2. 수록곡 제목</li>
-				<li class="song-item">3. 수록곡 제목</li>
-			</ul>
-		</div>
 		
 	</main>
 </body>
-<script type="text/javascript" src="js/moveInfo.js"></script>
+<script type="text/javascript" src="js/aTagEvents.js"></script>
 <script type="text/javascript" src="js/dateformat.js"></script>
 </html>

@@ -5,23 +5,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Hot 100</title>
+<title>나의 플레이리스트</title>
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/chart.css">
 </head>
 <%@ include file="/include/header.jsp" %>
 <body>
 	<div class="container">
-		<h2>Hot 100</h2>
+		<h2>나의 플레이리스트</h2>
 		<ul class="song-list">
 			<li class="chart-song-item">
-				<div class="chart-thumb">순위</div>
+				<div class="chart-thumb">번호</div>
 				<div class="meta">
 					<div class="name">곡 정보</div>
 				</div>
 				<div class="title">재생</div>
 				<div class="title">정보</div>
-				<div class="title">담기</div>
+				<div class="title">빼기</div>
 			</li>
 			<c:forEach var="song" items="${list}" varStatus="status">
 				<li class="song-item">
@@ -52,8 +52,8 @@
 						</a>
 					</div>
 					<div class="content">
-						<a class="updateFavorite" href="addFavorite" songnum="${song.song_number}">
-							♥
+						<a class="updateFavorite" href="removeFavorite" songnum="${song.song_number}">
+							―
 						</a>
 					</div>
 				</li>

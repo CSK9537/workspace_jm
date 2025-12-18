@@ -14,18 +14,7 @@
 		<div class="layout">
 	<!-- 메인 컬럼 -->
 			<section>
-				<div class="hero card">
-					<div class="carousel" id="mainCarousel"><!-- 자바스크립트로 제어 가능 -->
-						<div>추천 가수</div>
-						<div>추천 곡</div>
-						<div>추천 앨범</div>
-					</div>
-					<div class="quick-links">
-						<a href="#" class="card">나의 플레이리스트</a>
-						<a href="#" class="card">공지사항</a>
-					</div>
-				</div>
-				<!-- 인기 곡 섹션 -->
+			<!-- 인기 곡 섹션 -->
 				<div class="section card">
 					<div class="title">
 						<h3>hot 5</h3><a class="moveInfo" href="chartPage">hot 100 &gt;</a>
@@ -49,40 +38,19 @@
 								</div>
 								<div class="main-content"><a href="${song.link}" target="_blank">▶</a></div>
 								<div class="main-content"><a class="moveInfo" href="songInfoPage" songnum="${song.song_number}">♬</a></div>
-								<div class="main-content"><a href="#">♥</a></div>
+								<div class="main-content"><a class="updateFavorite" href="addFavorite" songnum="${song.song_number}">♥</a></div>
 							</li>
 						</c:forEach>
-	<!-- 데이터가 없을 때의 플레이스홀더 -->
 						<c:if test="${empty list}">
 							<li class="song-item">데이터가 없습니다.</li>
 						</c:if>
 					</ul>
 				</div>
 			</section>
-	<!-- 오른쪽 사이드바 -->
+		<!-- 오른쪽 사이드바 -->
 			<aside class="sidebar">
-				<div class="card">
-					<div class="title">
-						<h4>실시간 hot 10</h4>
-					</div>
-					<div class="chart-list">
-						<c:forEach var="c" items="${realtimeChart}" varStatus="rs" begin="0" end="9">
-							<div class="chart-item">
-								<div class="rank">${rs.index+1}</div>
-								<div style="flex:1;">
-									<div style="font-weight:600;">
-										${c.title}
-									</div>
-									<div style="font-size:13px; color:#666;">
-										${c.artist}
-									</div>
-								</div>
-							</div>
-						</c:forEach>
-						<c:if test="${empty realtimeChart}">
-							<div class="chart-item">차트 데이터 없음</div>
-						</c:if>
-					</div>
+				<div class="quick-links" style="margin-top:20px">
+					<a class="card" id="moveFavorite" href=favoritePage jmuserid="${jmuser.jmuser_id}">나의 플레이리스트</a>
 				</div>
 			</aside>
 		</div>
@@ -93,5 +61,5 @@
 	</main>
 </body>
 <script type="text/javascript" src="js/main.js"></script>
-<script type="text/javascript" src="js/moveInfo.js"></script>
+<script type="text/javascript" src="js/aTagEvents.js"></script>
 </html>

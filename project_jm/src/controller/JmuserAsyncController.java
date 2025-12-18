@@ -19,6 +19,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import service.JmuserService;
 import service.JmuserServiceImpl;
+import service.MusicService;
+import service.MusicServiceImpl;
 import vo.JmuserVO;
 
 @WebServlet("/JmuserAsyncController")
@@ -71,6 +73,7 @@ public class JmuserAsyncController extends HttpServlet {
 		JmuserVO juvo = null;
 		// 서비스 객체
 		JmuserService juservice = new JmuserServiceImpl();
+		MusicService mservice = new MusicServiceImpl();
 		
 		switch (cmd) {
 		// 1. 아이디 중복 확인
@@ -129,8 +132,8 @@ public class JmuserAsyncController extends HttpServlet {
 			
 		// 4. 로그아웃
 		case "logout":
-			JmuserVO sessionVO = (JmuserVO)session.getAttribute("jmuser");
-			if(sessionVO != null) {
+			JmuserVO sessionVO1 = (JmuserVO)session.getAttribute("jmuser");
+			if(sessionVO1 != null) {
 				session.removeAttribute("jmuser");
 				response.sendRedirect("JmMainController?cmd=mainPage");
 			}
@@ -164,6 +167,7 @@ public class JmuserAsyncController extends HttpServlet {
 			break;
 
 		}
+		
 		// js에 전달
 		out.print(obj);
 	}

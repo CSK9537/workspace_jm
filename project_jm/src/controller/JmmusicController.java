@@ -3,6 +3,7 @@ package controller;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -21,6 +22,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import service.MusicService;
 import service.MusicServiceImpl;
 import vo.AlbumVO;
+import vo.JmuserVO;
 import vo.SingerVO;
 import vo.SongVO;
 
@@ -79,7 +81,9 @@ public class JmmusicController extends HttpServlet {
 		SingerVO singervo = null;
 		AlbumVO albumvo = null;
 		// List 객체
-		List<SongVO> list = null;
+		List<SongVO> list1 = null;
+		List<SongVO> list2 = null;
+		List<SongVO> list3 = null;
 		// 서비스 객체
 		MusicService mservice = new MusicServiceImpl();
 		// 컬럼 초기화
@@ -89,15 +93,15 @@ public class JmmusicController extends HttpServlet {
 		switch (cmd) {
 		case "main":
 			mservice.randomcount();
-			list = mservice.chart_10();
-			request.setAttribute("list", list);
+			list1 = mservice.chart_10();
+			request.setAttribute("list", list1);
 			path = "jm/mainPage.jsp";
 			
 			break;
 			
 		case "chart":
-			list = mservice.chart_100();
-			request.setAttribute("list", list);
+			list1 = mservice.chart_100();
+			request.setAttribute("list", list1);
 			path = "jm/chartPage.jsp";
 			
 			break;
@@ -131,9 +135,88 @@ public class JmmusicController extends HttpServlet {
 			break;
 			
 		case "search":
-			System.out.println(request.getParameter("q"));
-			
+			String q = request.getParameter("q");
+			list1 = mservice.searchSinger(q);
+			list2 = mservice.searchSong(q);
+			list3 = mservice.searchAlbum(q);
+			request.setAttribute("q", q);
+			request.setAttribute("list1", list1);
+			request.setAttribute("list2", list2);
+			request.setAttribute("list3", list3);
 			path = "jm/searchPage.jsp";
+			
+			break;
+			
+		case "getFavorite":
+			JmuserVO sessionVO1 = (JmuserVO)session.getAttribute("jmuser");
+			list1 = new ArrayList<>();
+			if(sessionVO1 != null) {
+				String favSt = sessionVO1.getJmuser_favorite();
+				if(favSt != null) {
+					String[] fav = favSt.split("n");
+					for (int i = 0; i < fav.length; i++) {
+						list1.add(mservice.songinfo_1(Integer.parseInt(fav[i])));
+					}
+				}else {
+					list1 = null;
+				}
+			}
+			request.setAttribute("list", list1);
+			path = "jm/favoritePage.jsp";
+			
+			break;
+		
+		case "addFavorite":
+			String songnumSt1 = request.getParameter("song_number");
+			JmuserVO sessionVO2 = (JmuserVO)session.getAttribute("jmuser");
+			if(sessionVO2 != null) {
+				String favSt = sessionVO2.getJmuser_favorite();
+				if(favSt == null) {
+					favSt = "";
+				}
+				favSt += songnumSt1 + "n";
+				sessionVO2.setJmuser_favorite(favSt);
+				mservice.updateFavorite(sessionVO2);
+				obj.clear();
+				obj.put("result", "success");
+			}else {
+				obj.clear();
+				obj.put("result", "fail");
+			}
+			
+			isAsync = true;
+			
+			break;
+		
+		case "removeFavorite":
+			String songnumSt2 = request.getParameter("song_number");
+			JmuserVO sessionVO3 = (JmuserVO)session.getAttribute("jmuser");
+			if(sessionVO3 != null) {
+				String favSt = sessionVO3.getJmuser_favorite();
+				if(favSt != null) {
+					List<Integer> songnums = new ArrayList<Integer>();
+					String[] fav = favSt.split("n");
+					for (int i = 0; i < fav.length; i++) {
+						songnums.add(Integer.parseInt(fav[i]));
+					}
+					songnums.remove(Integer.valueOf(songnumSt2));
+					favSt = "";
+					for (int i : songnums) {
+						favSt += i + "n";
+					}
+				}else {
+					favSt = "";
+				}
+				sessionVO3.setJmuser_favorite(favSt);
+				mservice.updateFavorite(sessionVO3);
+				obj.clear();
+				obj.put("result", "success");
+			}else {
+				obj.clear();
+				obj.put("result", "fail");
+			}
+			
+			isAsync = true;
 			
 			break;
 		}

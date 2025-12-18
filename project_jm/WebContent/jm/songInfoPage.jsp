@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>곡 정보</title>
 <link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/songInfo.css">
 </head>
 <%@ include file="/include/header.jsp" %>
 <body>
@@ -27,9 +28,9 @@
 					<button class="icon-btn" onclick="window.open('${songvo.link}')">
 						▶ 재생
 					</button>
-					<button class="icon-btn" onclick="">
+					<a class="updateFavorite" href="addFavorite" songnum="${songvo.song_number}">
 						♥ 좋아요
-					</button>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -52,6 +53,6 @@
 		
 	</main>
 </body>
-<script type="text/javascript" src="js/moveInfo.js"></script>
+<script type="text/javascript" src="js/aTagEvents.js"></script>
 <script type="text/javascript" src="js/dateformat.js"></script>
 </html>

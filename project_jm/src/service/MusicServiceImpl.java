@@ -5,6 +5,7 @@ import java.util.List;
 import dao.MusicDao;
 import dao.MusicDaoImpl;
 import vo.AlbumVO;
+import vo.JmuserVO;
 import vo.SingerVO;
 import vo.SongVO;
 
@@ -39,5 +40,21 @@ public class MusicServiceImpl implements MusicService{
 	@Override
 	public AlbumVO albuminfo(AlbumVO albumvo) {
 		return mdao.albuminfo(albumvo);
+	}
+	@Override
+	public List<SongVO> searchSinger(String q) {
+		return mdao.searchSinger(q);
+	}
+	@Override
+	public List<SongVO> searchSong(String q) {
+		return mdao.searchSong(q);
+	}
+	@Override
+	public List<SongVO> searchAlbum(String q) {
+		return mdao.searchAlbum(q);
+	}
+	@Override
+	public void updateFavorite(JmuserVO sessionVO) {
+		mdao.updateFavorite(sessionVO);
 	}
 }

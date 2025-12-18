@@ -1,0 +1,12 @@
+@charset "UTF-8";
+.updateFavorite{
+	color:#ffffff;
+	background:#ac67f1;
+	border:1px solid rgba(255,255,255,0.2);
+	padding:8px 12px; border-radius:999px;
+	cursor:pointer;
+}
+.updateFavorite:hover{
+	color:#ffffff;
+	background-color:#8825eb;
+}

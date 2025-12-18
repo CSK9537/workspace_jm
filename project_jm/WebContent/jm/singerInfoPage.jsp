@@ -22,24 +22,6 @@
 				</p>
 			</div>
 		</div>
-		
-		<div class="section card" style="margin-top:20px;">
-			<div class="title"><h3>대표곡</h3></div>
-			<ul class="song-list">
-				<li class="song-item">대표곡 1</li>
-				<li class="song-item">대표곡 2</li>
-				<li class="song-item">대표곡 3</li>
-			</ul>
-		</div>
-		
-		<div class="section card" style="margin-top:20px;">
-			<div class="title"><h3>앨범</h3></div>
-			<div class="grid-3">
-				<div class="card">앨범 1</div>
-				<div class="card">앨범 2</div>
-				<div class="card">앨범 3</div>
-			</div>
-		</div>
 
 	</main>
 </body>

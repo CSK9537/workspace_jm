@@ -1,0 +1,50 @@
+@charset "UTF-8";
+.container{
+	max-width:1000px;
+	margin-top:15px;
+}
+h2{
+	margin-bottom:20px;
+	text-align:center;
+}
+.chart-song-item{
+	display:flex;
+	gap:12px;
+	align-items:center;
+	padding:8px;
+	border-radius:8px;
+	transition:background .15s ease;
+}
+.chart-thumb{
+	width:52px;
+	height:26px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	font-size:12px;
+}
+.search-title{
+	width:40px;
+	text-align:center;
+	font-size:15px;
+}
+.search-song-item{
+	display:flex;
+	gap:12px;
+	align-items:center;
+	padding:3px 8px;
+	border-radius:8px;
+	transition:background .15s ease;
+}
+.content{
+	width:40px;
+	text-align:center;
+}
+.content a{
+	font-size:21px;
+	color:#ac67f1;
+	text-decoration: none;
+}
+.content a:hover{
+	color:#8825eb;
+}

@@ -55,6 +55,9 @@ public class JmMainController extends HttpServlet {
 		case "searchPage":
 			path = "JmmusicController?cmd=search";
 			break;
+		case "favoritePage":
+			path = "JmmusicController?cmd=getFavorite";
+			break;
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);

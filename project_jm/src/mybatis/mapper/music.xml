@@ -45,4 +45,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="albuminfo" parameterType="vo.AlbumVO" resultType="vo.AlbumVO">
 		SELECT * FROM album WHERE singer=#{singer} AND album_name=#{album_name}
 	</select>
+	<!-- 8. 검색(가수) -->
+	<select id="searchsinger" parameterType="String" resultType="vo.SongVO">
+		SELECT * FROM song WHERE singer LIKE '%' || #{q} || '%'
+	</select>
+	<!-- 9. 검색(노래) -->
+	<select id="searchsong" parameterType="String" resultType="vo.SongVO">
+		SELECT * FROM song WHERE song_name LIKE '%' || #{q} || '%'
+	</select>
+	<!-- 10. 검색(앨범) -->
+	<select id="searchalbum" parameterType="String" resultType="vo.SongVO">
+		SELECT * FROM song WHERE album_name LIKE '%' || #{q} || '%'
+	</select>
+	<!-- 11. 플레이리스트 수정 -->
+	<update id="updateFavorite" parameterType="vo.JmuserVO">
+		UPDATE jmuser SET jmuser_favorite=#{jmuser_favorite} WHERE jmuser_idx=#{jmuser_idx}
+	</update>
 </mapper>

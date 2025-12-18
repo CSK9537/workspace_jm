@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>내 정보</title>
 <link rel="stylesheet" href="css/main.css">
 <link rel="stylesheet" href="css/input_data.css">
 </head>
@@ -14,6 +14,7 @@
 		<div class="card">
 			<h2>내 정보</h2>
 			<form>
+				<a id="moveFavorite" href=favoritePage jmuserid="${jmuser.jmuser_id}">나의 플레이리스트로 이동</a>
 				<h4>필수사항</h4>
 				<input type="text" class="input_box" name="jmuser_id" placeholder="아이디 - 영어 소문자로 시작, 영어 + 숫자 3~12글자" maxlength="12" value="${jmuser.jmuser_id }" style="background-color: #dddddd;" readonly>
 				<input type="password" class="input_box" name="jmuser_pw" placeholder="비밀번호 - 영어 소문자, 대문자, 숫자 8~16글자" value="${jmuser.jmuser_pw }">
@@ -36,12 +37,10 @@
 				<input type="text" class="input_box" name="jmuser_addr" placeholder="주소" value="${jmuser.jmuser_addr }">
 				<input type="hidden" name="jmuser_idx" value="${jmuser.jmuser_idx }">
 				<input type="hidden" name="cmd" value="update">
-				<!--
-				<button type="button" onclick="update()" class="icon-btn" style="background:#c58aff; font-size:16px; border:0; color:#fff; padding:10px; border-radius:8px; margin-top:20px;">수정하기</button>
-				-->
 			</form>
 		</div>
 	</div>
 </body>
 <script type="text/javascript" src="js/my.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 </html>
