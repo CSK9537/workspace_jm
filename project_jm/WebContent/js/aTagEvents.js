@@ -39,36 +39,18 @@ document.querySelectorAll('.updateFavorite').forEach(aEle => {
 				fetch(`JmmusicController?${queryString}`)
 					.then(response => response.json())
 					.then(data => {
-						if(data.result == "success"){
-							alert('추가 완료');
-						}else{
+						if(data.result == "fail"){
 							alert('추가 실패');
 						}
 					})
 					.catch(err => console.log(err));
 			}
 		}
+		
+		
 		if(getcmd == 'removeFavorite'){
 			if(confirm("플레이리스트에서 삭제하시겠습니까?")){
-				const params = {
-					cmd : getcmd,
-					song_number : getsongnum
-				}
-				
-				const queryString = Object.keys(params).map(key => encodeURIComponent(key)
-				+ "=" + encodeURIComponent(params[key])).join('&');
-				
-				fetch(`JmmusicController?${queryString}`)
-					.then(response => response.json())
-					.then(data => {
-						if(data.result == "success"){
-							alert('삭제 완료');
-							location.href("JmMainController?cmd=favoritePage");
-						}else{
-							alert('삭제 실패');
-						}
-					})
-					.catch(err => console.log(err));
+				location.href = `JmmusicController?cmd=${getcmd}&song_number=${getsongnum}`;
 			}
 		}
 	});

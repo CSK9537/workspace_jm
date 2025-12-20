@@ -70,8 +70,8 @@ public class JmmusicController extends HttpServlet {
 			cmd = (String)obj.get("cmd");
 		}
 		
-		// 동기, 비동기 구분
-		boolean isAsync = false;
+		// 전송 방식
+		int send = 1;
 		// 세션 객체
 		HttpSession session = request.getSession();
 		// 경로
@@ -187,7 +187,7 @@ public class JmmusicController extends HttpServlet {
 				obj.put("result", "fail");
 			}
 			
-			isAsync = true;
+			send = 3;
 			
 			break;
 		
@@ -208,27 +208,25 @@ public class JmmusicController extends HttpServlet {
 						favSt += i + "n";
 					}
 				}else {
-					favSt = "";
+					favSt = null;
 				}
 				sessionVO3.setJmuser_favorite(favSt);
 				mservice.updateFavorite(sessionVO3);
-				obj.clear();
-				obj.put("result", "success");
-			}else {
-				obj.clear();
-				obj.put("result", "fail");
 			}
 			
-			isAsync = true;
+			send = 2;
+			path = "JmMainController?cmd=favoritePage";
 			
 			break;
 		}
 		
-		if(isAsync) {
-			// js에 전달
-			out.print(obj);
-		}else {
+		if(send == 1) {
 			request.getRequestDispatcher(path).forward(request, response);
+		}else if(send == 2) {
+			response.sendRedirect(path);
+		}else {
+			// js에 전달
+			out.print(obj);			
 		}
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
