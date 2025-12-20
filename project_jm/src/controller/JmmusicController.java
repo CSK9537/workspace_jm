@@ -152,7 +152,10 @@ public class JmmusicController extends HttpServlet {
 			list1 = new ArrayList<>();
 			if(sessionVO1 != null) {
 				String favSt = sessionVO1.getJmuser_favorite();
-				if(favSt != null) {
+				if(favSt == "") {
+					favSt = null;
+					list1 = null;
+				}else if(favSt != null) {
 					String[] fav = favSt.split("n");
 					for (int i = 0; i < fav.length; i++) {
 						list1.add(mservice.songinfo_1(Integer.parseInt(fav[i])));
