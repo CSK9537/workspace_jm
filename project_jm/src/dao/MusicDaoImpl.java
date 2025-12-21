@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import mybatis.config.DBService;
 import vo.AlbumVO;
 import vo.JmuserVO;
+import vo.PlaylistVO;
 import vo.SingerVO;
 import vo.SongVO;
 
@@ -70,6 +71,24 @@ public class MusicDaoImpl implements MusicDao{
 	@Override
 	public List<SongVO> searchAlbum(String q) {
 		return getSqlSession().selectList("searchalbum", q);
+	}
+	@Override
+	public List<Integer> getPlaylist(int jmuser_idx) {
+		return getSqlSession().selectList("getPlaylist", jmuser_idx);
+	}
+	@Override
+	public void addPlaylist(PlaylistVO pvo) {
+		int result = getSqlSession().insert("addPlaylist", pvo);
+		if(result > 0) {
+			getSqlSession().commit();
+		}
+	}
+	@Override
+	public void removePlaylist(PlaylistVO pvo) {
+		int result = getSqlSession().delete("removePlaylist", pvo);
+		if(result > 0) {
+			getSqlSession().commit();
+		}
 	}
 	@Override
 	public void updateFavorite(JmuserVO sessionVO) {

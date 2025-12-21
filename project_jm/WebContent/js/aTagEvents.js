@@ -21,12 +21,12 @@ document.querySelectorAll('.moveInfo').forEach(aEle => {
 });
 
 // 플레이리스트 수정
-document.querySelectorAll('.updateFavorite').forEach(aEle => {
+document.querySelectorAll('.updatePlaylist').forEach(aEle => {
 	aEle.addEventListener('click', (e) => {
 		e.preventDefault();
 		let getcmd = aEle.getAttribute('href');
 		let getsongnum = aEle.getAttribute('songnum');
-		if(getcmd == 'addFavorite'){
+		if(getcmd == 'addPlaylist'){
 			if(confirm("플레이리스트에 추가하시겠습니까?")){
 				const params = {
 					cmd : getcmd,
@@ -48,7 +48,7 @@ document.querySelectorAll('.updateFavorite').forEach(aEle => {
 		}
 		
 		
-		if(getcmd == 'removeFavorite'){
+		if(getcmd == 'removePlaylist'){
 			if(confirm("플레이리스트에서 삭제하시겠습니까?")){
 				location.href = `JmmusicController?cmd=${getcmd}&song_number=${getsongnum}`;
 			}

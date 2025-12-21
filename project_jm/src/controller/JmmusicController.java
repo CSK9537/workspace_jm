@@ -23,6 +23,7 @@ import service.MusicService;
 import service.MusicServiceImpl;
 import vo.AlbumVO;
 import vo.JmuserVO;
+import vo.PlaylistVO;
 import vo.SingerVO;
 import vo.SongVO;
 
@@ -147,77 +148,61 @@ public class JmmusicController extends HttpServlet {
 			
 			break;
 			
-		case "getFavorite":
+		case "getPlaylist":
 			JmuserVO sessionVO1 = (JmuserVO)session.getAttribute("jmuser");
-			list1 = new ArrayList<>();
+			List<Integer> listSongNum = new ArrayList<Integer>();
+			list1 = new ArrayList<SongVO>();
 			if(sessionVO1 != null) {
-				String favSt = sessionVO1.getJmuser_favorite();
-				if(favSt == "") {
-					favSt = null;
-					list1 = null;
-				}else if(favSt != null) {
-					String[] fav = favSt.split("n");
-					for (int i = 0; i < fav.length; i++) {
-						list1.add(mservice.songinfo_1(Integer.parseInt(fav[i])));
-					}
-				}else {
-					list1 = null;
+				listSongNum = mservice.getPlaylist(sessionVO1.getJmuser_idx());
+				for(int i : listSongNum) {
+					list1.add(mservice.songinfo_1(i));
 				}
+				request.setAttribute("list", list1);
 			}
-			request.setAttribute("list", list1);
-			path = "jm/favoritePage.jsp";
+			
+			path = "jm/playlistPage.jsp";
 			
 			break;
-		
-		case "addFavorite":
-			String songnumSt1 = request.getParameter("song_number");
+			
+		case "addPlaylist":
 			JmuserVO sessionVO2 = (JmuserVO)session.getAttribute("jmuser");
 			if(sessionVO2 != null) {
-				String favSt = sessionVO2.getJmuser_favorite();
-				if(favSt == null) {
-					favSt = "";
+				int jmuseridx = sessionVO2.getJmuser_idx();
+				int songnum = Integer.parseInt(request.getParameter("song_number"));
+				PlaylistVO pvo = new PlaylistVO();
+				pvo.setJmuser_idx(jmuseridx);
+				pvo.setSong_number(songnum);
+				try {
+					mservice.addPlaylist(pvo);
+					obj.clear();
+					obj.put("result", "success");
+				} catch (Exception e) {
+					obj.clear();
+					obj.put("result", "fail");
 				}
-				favSt += songnumSt1 + "n";
-				sessionVO2.setJmuser_favorite(favSt);
-				mservice.updateFavorite(sessionVO2);
-				obj.clear();
-				obj.put("result", "success");
-			}else {
-				obj.clear();
-				obj.put("result", "fail");
+				
 			}
 			
 			send = 3;
 			
 			break;
-		
-		case "removeFavorite":
-			String songnumSt2 = request.getParameter("song_number");
+			
+		case "removePlaylist":
 			JmuserVO sessionVO3 = (JmuserVO)session.getAttribute("jmuser");
 			if(sessionVO3 != null) {
-				String favSt = sessionVO3.getJmuser_favorite();
-				if(favSt != null) {
-					List<Integer> songnums = new ArrayList<Integer>();
-					String[] fav = favSt.split("n");
-					for (int i = 0; i < fav.length; i++) {
-						songnums.add(Integer.parseInt(fav[i]));
-					}
-					songnums.remove(Integer.valueOf(songnumSt2));
-					favSt = "";
-					for (int i : songnums) {
-						favSt += i + "n";
-					}
-				}else {
-					favSt = null;
-				}
-				sessionVO3.setJmuser_favorite(favSt);
-				mservice.updateFavorite(sessionVO3);
+				int jmuseridx = sessionVO3.getJmuser_idx();
+				int songnum = Integer.parseInt(request.getParameter("song_number"));
+				PlaylistVO pvo = new PlaylistVO();
+				pvo.setJmuser_idx(jmuseridx);
+				pvo.setSong_number(songnum);
+				mservice.removePlaylist(pvo);
 			}
 			
 			send = 2;
-			path = "JmMainController?cmd=favoritePage";
+			path = "JmMainController?cmd=playlistPage";
 			
 			break;
+		
 		}
 		
 		if(send == 1) {

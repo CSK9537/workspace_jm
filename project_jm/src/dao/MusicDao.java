@@ -4,6 +4,7 @@ import java.util.List;
 
 import vo.AlbumVO;
 import vo.JmuserVO;
+import vo.PlaylistVO;
 import vo.SingerVO;
 import vo.SongVO;
 
@@ -18,5 +19,8 @@ public interface MusicDao {
 	public List<SongVO> searchSinger(String q);
 	public List<SongVO> searchSong(String q);
 	public List<SongVO> searchAlbum(String q);
+	public List<Integer> getPlaylist(int jmuser_idx);
+	public void addPlaylist(PlaylistVO pvo);
+	public void removePlaylist(PlaylistVO pvo);
 	public void updateFavorite(JmuserVO sessionVO);
 }

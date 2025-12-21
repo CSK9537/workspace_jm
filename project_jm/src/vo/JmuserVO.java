@@ -11,12 +11,10 @@ public class JmuserVO {
 	private String jmuser_tel;
 	private String jmuser_email;
 	private String jmuser_addr;
-	private String jmuser_favorite;
 	
 	public JmuserVO() {}
 	public JmuserVO(int jmuser_idx, String jmuser_id, String jmuser_pw, String jmuser_name, String jmuser_nickname,
-			String jmuser_birth, String jmuser_gender, String jmuser_tel, String jmuser_email, String jmuser_addr,
-			String jmuser_favorite) {
+			String jmuser_birth, String jmuser_gender, String jmuser_tel, String jmuser_email, String jmuser_addr) {
 		super();
 		this.jmuser_idx = jmuser_idx;
 		this.jmuser_id = jmuser_id;
@@ -28,7 +26,6 @@ public class JmuserVO {
 		this.jmuser_tel = jmuser_tel;
 		this.jmuser_email = jmuser_email;
 		this.jmuser_addr = jmuser_addr;
-		this.jmuser_favorite = jmuser_favorite;
 	}
 	public int getJmuser_idx() {
 		return jmuser_idx;
@@ -89,12 +86,6 @@ public class JmuserVO {
 	}
 	public void setJmuser_addr(String jmuser_addr) {
 		this.jmuser_addr = jmuser_addr;
-	}
-	public String getJmuser_favorite() {
-		return jmuser_favorite;
-	}
-	public void setJmuser_favorite(String jmuser_favorite) {
-		this.jmuser_favorite = jmuser_favorite;
 	}
 	
 }

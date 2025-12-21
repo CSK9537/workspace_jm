@@ -6,6 +6,7 @@ import dao.MusicDao;
 import dao.MusicDaoImpl;
 import vo.AlbumVO;
 import vo.JmuserVO;
+import vo.PlaylistVO;
 import vo.SingerVO;
 import vo.SongVO;
 
@@ -52,6 +53,18 @@ public class MusicServiceImpl implements MusicService{
 	@Override
 	public List<SongVO> searchAlbum(String q) {
 		return mdao.searchAlbum(q);
+	}
+	@Override
+	public List<Integer> getPlaylist(int jmuser_idx) {
+		return mdao.getPlaylist(jmuser_idx);
+	}
+	@Override
+	public void addPlaylist(PlaylistVO pvo) {
+		mdao.addPlaylist(pvo);
+	}
+	@Override
+	public void removePlaylist(PlaylistVO pvo) {
+		mdao.removePlaylist(pvo);
 	}
 	@Override
 	public void updateFavorite(JmuserVO sessionVO) {

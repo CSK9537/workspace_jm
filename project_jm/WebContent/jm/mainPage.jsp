@@ -38,7 +38,7 @@
 								</div>
 								<div class="main-content"><a href="${song.link}" target="_blank">▶</a></div>
 								<div class="main-content"><a class="moveInfo" href="songInfoPage" songnum="${song.song_number}">♬</a></div>
-								<div class="main-content"><a class="updateFavorite" href="addFavorite" songnum="${song.song_number}">♥</a></div>
+								<div class="main-content"><a class="updatePlaylist" href="addPlaylist" songnum="${song.song_number}">♥</a></div>
 							</li>
 						</c:forEach>
 						<c:if test="${empty list}">
@@ -50,7 +50,7 @@
 		<!-- 오른쪽 사이드바 -->
 			<aside class="sidebar">
 				<div class="quick-links" style="margin-top:20px">
-					<a class="card" id="moveFavorite" href=favoritePage jmuserid="${jmuser.jmuser_id}">나의 플레이리스트</a>
+					<a class="card" id="moveFavorite" href=playlistPage jmuserid="${jmuser.jmuser_id}">나의 플레이리스트</a>
 				</div>
 			</aside>
 		</div>

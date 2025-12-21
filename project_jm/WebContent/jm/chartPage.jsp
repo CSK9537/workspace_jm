@@ -52,7 +52,7 @@
 						</a>
 					</div>
 					<div class="content">
-						<a class="updateFavorite" href="addFavorite" songnum="${song.song_number}">
+						<a class="updatePlaylist" href="addPlaylist" songnum="${song.song_number}">
 							♥
 						</a>
 					</div>

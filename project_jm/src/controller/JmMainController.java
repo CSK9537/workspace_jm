@@ -55,8 +55,8 @@ public class JmMainController extends HttpServlet {
 		case "searchPage":
 			path = "JmmusicController?cmd=search";
 			break;
-		case "favoritePage":
-			path = "JmmusicController?cmd=getFavorite";
+		case "playlistPage":
+			path = "JmmusicController?cmd=getPlaylist";
 			break;
 		}
 		

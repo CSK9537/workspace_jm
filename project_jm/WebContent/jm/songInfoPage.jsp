@@ -28,7 +28,7 @@
 					<button class="icon-btn" onclick="window.open('${songvo.link}')">
 						▶ 재생
 					</button>
-					<a class="updateFavorite" href="addFavorite" songnum="${songvo.song_number}">
+					<a class="updatePlaylist" href="addPlaylist" songnum="${songvo.song_number}">
 						♥ 좋아요
 					</a>
 				</div>

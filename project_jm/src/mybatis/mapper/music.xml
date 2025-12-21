@@ -57,8 +57,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="searchalbum" parameterType="String" resultType="vo.SongVO">
 		SELECT * FROM song WHERE album_name LIKE '%' || #{q} || '%'
 	</select>
-	<!-- 11. 플레이리스트 수정 -->
-	<update id="updateFavorite" parameterType="vo.JmuserVO">
-		UPDATE jmuser SET jmuser_favorite=#{jmuser_favorite} WHERE jmuser_idx=#{jmuser_idx}
-	</update>
+	<!-- 11. 플레이리스트 출력 -->
+	<select id="getPlaylist" parameterType="int" resultType="int">
+		SELECT song_number FROM playlist WHERE jmuser_idx=#{jmuser_idx}
+	</select>
+	<!-- 12. 플레이리스트 추가 -->
+	<insert id="addPlaylist" parameterType="vo.PlaylistVO">
+		INSERT INTO playlist VALUES (#{jmuser_idx}, #{song_number})
+	</insert>
+	<!-- 13. 플레이리스트 삭제 -->
+	<delete id="removePlaylist" parameterType="vo.PlaylistVO">
+		DELETE FROM playlist WHERE jmuser_idx=#{jmuser_idx} AND song_number=#{song_number}
+	</delete>
 </mapper>
